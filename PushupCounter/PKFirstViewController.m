@@ -10,13 +10,17 @@
 #import "PKFlipsideViewController.h"
 #import "PKDataManager.h"
 
+#define DEFAULT_DAILY_GOAL 10;
+
 @interface PKFirstViewController ()
 @property (strong, nonatomic) NSString *lastEntryKey;
 @end
 
 @implementation PKFirstViewController {
     int count;
+    int dailyGoal;
 }
+
 
 - (void)viewDidLoad
 {
@@ -26,6 +30,30 @@
     [self.spinner stopAnimating];
     [self updateButtonValue];
     [[PKDataManager sharedManager] requestLocation];
+
+    [self initDailyGoal];
+    [self updateDailyGoalLabel];
+}
+
+- (IBAction)changeDailyGoal:(UIStepper *)sender
+{
+    dailyGoal = (int)sender.value;
+    [self updateDailyGoalLabel];
+}
+
+- (void)updateDailyGoalLabel
+{
+    NSString *newText = [@[[NSString stringWithFormat:@"%d", dailyGoal], @"Pushups"]componentsJoinedByString:@" "];
+    [self.dailyGoalLabel setText:newText];
+}
+
+- (void)initDailyGoal
+{
+    // load from database, if not present, use default
+    if(YES) {
+        dailyGoal = DEFAULT_DAILY_GOAL;
+    }
+    self.dailyGoalStepper.value = (float)dailyGoal;
 }
 
 #pragma mark - Flipside View
