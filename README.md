@@ -1,4 +1,4 @@
-## Pushup Counter
+## Pushup Goal
 
 ![Icon](Icon/pushup-counter-icon.png)
 
@@ -22,6 +22,7 @@ Edit `Config.h` and define your API endpoint to send to.
 ### License
 
 Copyright 2013 by Aaron Parecki
+Copyright 2014 by Tobi Lehman
 
 Licensed under the Apache license. See LICENSE.
 
