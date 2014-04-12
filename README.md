@@ -2,7 +2,7 @@
 
 ![Icon](Icon/pushup-counter-icon.png)
 
-![Screenshot](Icon/screenshot.png =320x568)
+![Screenshot](Icon/screenshot.png)
 
 ### Setup
 
